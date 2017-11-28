@@ -54,4 +54,4 @@ fun String?.checkEmpty(checkBlankSpace: Boolean = false) = if (checkBlankSpace) 
 /**
  * 检查字符串非空
  */
-fun String?.checkNotEmpty(checkBlankSpace: Boolean) = !checkEmpty(checkBlankSpace)
+fun String?.checkNotEmpty(checkBlankSpace: Boolean = false) = !checkEmpty(checkBlankSpace)

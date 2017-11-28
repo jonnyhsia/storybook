@@ -2,6 +2,7 @@ package com.jonnyhsia.storybook.page.base
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.jonnyhsia.storybook.router.Router
 
 /**
  * Activity 基类
@@ -20,7 +21,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     fun jump(uri: String) {
-        // TODO: 页面路由跳转
+        Router.jump(this, uri)
     }
 
     @Suppress("UNCHECKED_CAST")
