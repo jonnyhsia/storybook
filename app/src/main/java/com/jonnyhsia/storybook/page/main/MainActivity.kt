@@ -1,9 +1,10 @@
-package com.jonnyhsia.storybook
+package com.jonnyhsia.storybook.page.main
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.jonnyhsia.storybook.R
+import com.jonnyhsia.storybook.page.base.DayNightActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : DayNightActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

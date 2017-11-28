@@ -27,6 +27,7 @@ ext {
     minSdkVersion = 21
     targetSdkVersion = 26
     compileSdkVersion = 26
+    versionName = "0.1"
     buildToolsVersion = "26.0.2"
 
     // dependencies
@@ -36,4 +37,7 @@ ext {
     rxbindingVersion = '2.0.0'
     retrofitVersion = '2.3.0'
     glideVersion = '4.2.0'
+
+    // app id
+    buglyAppId = ""
 }

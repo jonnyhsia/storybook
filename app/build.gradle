@@ -5,14 +5,19 @@ apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion rootProject.compileSdkVersion
+
     defaultConfig {
         applicationId "com.jonnyhsia.storybook"
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
         versionCode 1
-        versionName "1.0"
+        versionName rootProject.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        manifestPlaceholders = [bugly_appid      : rootProject.buglyAppId,
+                                bugly_app_version: rootProject.versionName]
     }
+
     buildTypes {
         release {
             zipAlignEnabled true
@@ -55,6 +60,9 @@ dependencies {
     implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
     implementation 'jp.wasabeef:glide-transformations:3.0.1'
     kapt "com.github.bumptech.glide:compiler:$rootProject.glideVersion"
+
+    // bugly
+    implementation "com.tencent.bugly:crashreport:2.6.6.1"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
