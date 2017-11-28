@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="aspect_ratio" format="float"/>
+
+    <declare-styleable name="AspectRatioView">
+        <attr name="aspect_ratio"/>
+    </declare-styleable>
+
+    <declare-styleable name="AspectRatioImageView">
+        <attr name="aspect_ratio"/>
+    </declare-styleable>
+
+    <declare-styleable name="SpannedGridLayoutManager">
+        <attr name="android:orientation"/>
+        <attr name="spanCount"/>
+        <attr name="aspectRatio"/>
+    </declare-styleable>
+
+    <declare-styleable name="BottomNavigation">
+        <attr name="primaryEnable" format="boolean"/>
+        <attr name="primaryIcon" format="reference"/>
+        <attr name="primaryText" format="string|reference"/>
+        <attr name="elevation" format="dimension"/>
+    </declare-styleable>
+</resources>

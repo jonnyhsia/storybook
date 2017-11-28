@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="HighlightToolbar">
+        <attr name="highlightTitle" format="string|reference"/>
+        <attr name="highlightSubTitle" format="string|reference"/>
+        <attr name="icon" format="reference"/>
+    </declare-styleable>
+
+</resources>
