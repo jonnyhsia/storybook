@@ -2,6 +2,7 @@ package com.jonnyhsia.storybook.app
 
 import android.app.Application
 import com.jonnyhsia.storybook.BuildConfig
+import com.jonnyhsia.storybook.biz.Injection
 import com.tencent.bugly.crashreport.CrashReport
 import kotlin.properties.Delegates
 
@@ -14,7 +15,7 @@ class App : Application() {
 
         initCrashReport()
 
-        // TODO: Preload Home Page Data
+        Injection.initialize(this)
     }
 
     /**

@@ -7,4 +7,18 @@
     android:layout_height="match_parent"
     tools:context="com.jonnyhsia.storybook.page.main.MainActivity">
 
+    <FrameLayout
+        android:id="@+id/frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="?actionBarSize"/>
+
+    <com.jonnyhsia.uilib.widget.BottomNavigation
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        android:elevation="8dp"/>
+
 </FrameLayout>

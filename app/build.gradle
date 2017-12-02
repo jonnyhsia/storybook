@@ -30,6 +30,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':highlighttoolbar')
+    implementation project(':uilib')
 
     // kt
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"

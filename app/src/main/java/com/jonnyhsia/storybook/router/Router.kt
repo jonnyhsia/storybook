@@ -6,8 +6,8 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.ArrayMap
-import com.jonnyhsia.storybook.app.checkNotEmpty
-import com.jonnyhsia.storybook.app.logd
+import com.jonnyhsia.storybook.kit.checkNotEmpty
+import com.jonnyhsia.storybook.kit.logd
 import com.jonnyhsia.storybook.page.auth.AuthActivity
 import com.jonnyhsia.storybook.page.main.MainActivity
 import com.jonnyhsia.storybook.page.pagenotfound.PageNotFoundActivity

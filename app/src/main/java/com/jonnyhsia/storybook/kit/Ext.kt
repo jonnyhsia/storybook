@@ -1,4 +1,4 @@
-package com.jonnyhsia.storybook.app
+package com.jonnyhsia.storybook.kit
 
 import android.support.annotation.IdRes
 import android.support.v4.app.Fragment
