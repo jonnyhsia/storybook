@@ -13,9 +13,11 @@ class App : Application() {
 
         INSTANCE = this
 
-        initCrashReport()
-
+        // Model 的初始化与预加载
         Injection.initialize(this)
+        Injection.preload()
+
+        initCrashReport()
     }
 
     /**

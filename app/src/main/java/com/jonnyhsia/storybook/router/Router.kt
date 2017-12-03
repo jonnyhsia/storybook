@@ -6,6 +6,9 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.ArrayMap
+import com.jonnyhsia.storybook.biz.Injection
+import com.jonnyhsia.storybook.biz.base.BaseLogic
+import com.jonnyhsia.storybook.biz.profile.ProfileRepository
 import com.jonnyhsia.storybook.kit.checkNotEmpty
 import com.jonnyhsia.storybook.kit.logd
 import com.jonnyhsia.storybook.page.auth.AuthActivity
@@ -50,8 +53,7 @@ object Router {
         val mapping = map.getOrDefault(uri.host, defaultMapping)
         logd(tag = "Router", msg = "$mapping")
 
-        // TODO: 登录验证
-        if (mapping.mustLogin) {
+        if (mapping.mustLogin && BaseLogic.getLocalUser() != null) {
             startActivityWithNativeUri(activity, Uri.parse(URI_AUTH))
             return
         }

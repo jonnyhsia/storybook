@@ -4,8 +4,11 @@ import android.content.Context
 import android.util.Log
 import com.jonnyhsia.storybook.BuildConfig
 import com.jonnyhsia.storybook.app.Const
+import com.jonnyhsia.storybook.app.Preference
 import com.jonnyhsia.storybook.biz.profile.entity.User
 import com.jonnyhsia.storybook.kit.AlgorithmKit
+import com.jonnyhsia.storybook.kit.checkEmpty
+import com.jonnyhsia.storybook.kit.checkNotEmpty
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -82,7 +85,16 @@ open class BaseLogic {
         }
 
         fun getLocalUser(): User? {
-            return null
+            val context = this.context.get() ?: throw IllegalStateException("Context is null")
+
+            val username by Preference(context, Preference.USERNAME, "", Preference.NAME_PROFILE)
+            val nickname by Preference(context, Preference.NICKNAME, "", Preference.NAME_PROFILE)
+
+            if (username.checkNotEmpty() || nickname.checkEmpty()) {
+                return null
+            }
+
+            return User(username, nickname)
         }
     }
 }

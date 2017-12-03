@@ -6,9 +6,10 @@ package com.jonnyhsia.storybook.biz.profile.entity
 data class User(
         val username: String,
         val nickname: String,
-        val email: String?,
-        val avatar: String?,
-        val userOverview: UserOverview) {
+        val email: String? = null,
+        val avatar: String? = null,
+        val secret_key: String? = null,
+        val userOverview: UserOverview? = null) {
 
     /**
      * 用户数据概览

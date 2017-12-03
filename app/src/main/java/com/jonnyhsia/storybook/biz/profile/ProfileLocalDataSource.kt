@@ -17,7 +17,7 @@ class ProfileLocalDataSource : BaseLogic(), ProfileDataSource {
     }
 
     override fun getUserProfile(userId: String, onSuccess: GetProfileSuccess, onFailed: OnFailed) {
-
+        throw AppError.INCORRECT_LOCAL_REQUEST.exception
     }
 
     fun saveProfile(user: User) {
