@@ -1,9 +1,10 @@
-package com.jonnyhsia.storybook.biz
+package com.jonnyhsia.storybook.biz.base
 
 import android.content.Context
 import android.util.Log
 import com.jonnyhsia.storybook.BuildConfig
 import com.jonnyhsia.storybook.app.Const
+import com.jonnyhsia.storybook.biz.profile.entity.User
 import com.jonnyhsia.storybook.kit.AlgorithmKit
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -15,12 +16,15 @@ import java.lang.ref.WeakReference
 import java.util.concurrent.TimeUnit
 import kotlin.properties.Delegates
 
-open class BaseRepository {
+open class BaseLogic {
 
     companion object {
         private val READ_TIMEOUT = 10L
         private val CONNECT_TIMEOUT = 10L
-        private val BASE_URL = ""
+        private val BASE_URL = Const.BASE_URL
+
+        @JvmStatic
+        var isInitialized = false
 
         private val httpInterceptor = { chain: Interceptor.Chain ->
             val original = chain.request()
@@ -32,11 +36,11 @@ open class BaseRepository {
             val signToken = AlgorithmKit.hmac256(Const.APP_NAME + randomString, Const.SIGN_SECRET_KEY)
                     ?: throw IllegalStateException("SignToken 不应为空")
 
-            if (getLoginUser() != null) {
+            if (getLocalUser() != null) {
                 // TODO: 请求默认添加用户数据
                 httpUrlBuilder.addQueryParameter("user_id", "")
                         .addQueryParameter("token", "")
-                        .addQueryParameter("skey", "")
+                        .addQueryParameter("secret_key", "")
             }
 
             val request = original.newBuilder()
@@ -73,9 +77,11 @@ open class BaseRepository {
                     .addConverterFactory(GsonConverterFactory.create())
                     .baseUrl(BASE_URL)
                     .build()
+
+            isInitialized = true
         }
 
-        private fun getLoginUser(): Any? {
+        fun getLocalUser(): User? {
             return null
         }
     }

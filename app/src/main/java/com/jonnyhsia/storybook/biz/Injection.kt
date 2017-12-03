@@ -1,21 +1,21 @@
 package com.jonnyhsia.storybook.biz
 
 import android.content.Context
+import com.jonnyhsia.storybook.biz.base.BaseDataSource
+import com.jonnyhsia.storybook.biz.base.BaseLogic
+import com.jonnyhsia.storybook.biz.profile.ProfileRepository
 import com.jonnyhsia.storybook.biz.story.StoryRepository
 
 object Injection {
-
-    private var isInitialized = false
 
     /**
      * 初始化
      */
     fun initialize(context: Context) {
-        if (isInitialized) {
-            throw IllegalStateException("Injection 已经完成初始化")
+        if (BaseLogic.isInitialized) {
+            throw IllegalStateException("Base Logic 已经完成初始化")
         }
-        BaseRepository.initialize(context)
-        isInitialized = true
+        BaseLogic.initialize(context)
     }
 
     /**
@@ -23,7 +23,7 @@ object Injection {
      * 在这里调用各个 Repository 的 preload
      */
     fun preload() {
-
+        getProfileRepository().preload()
     }
 
     ///////////////////////////////////////////////////////////////////////////
@@ -31,4 +31,6 @@ object Injection {
     ///////////////////////////////////////////////////////////////////////////
 
     fun getStoryRepository() = StoryRepository.instance()
+
+    fun getProfileRepository() = ProfileRepository.instance()
 }

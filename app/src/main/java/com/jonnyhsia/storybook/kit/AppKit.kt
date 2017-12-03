@@ -3,6 +3,7 @@ package com.jonnyhsia.storybook.kit
 import android.content.Context
 import android.content.pm.PackageManager
 import android.net.ConnectivityManager
+import com.jonnyhsia.storybook.app.App
 
 object AppKit {
 
@@ -10,8 +11,8 @@ object AppKit {
      * 判断网络可不可用
      * @return true为可用
      */
-    fun isNetworkAvailable(context: Context): Boolean {
-        val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as? ConnectivityManager
+    fun isNetworkAvailable(): Boolean {
+        val cm = App.INSTANCE.getSystemService(Context.CONNECTIVITY_SERVICE) as? ConnectivityManager
         val info = cm?.activeNetworkInfo ?: return false
         return info.isAvailable && info.isConnected
     }

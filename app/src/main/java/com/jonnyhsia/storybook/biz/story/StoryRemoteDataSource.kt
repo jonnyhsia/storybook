@@ -1,8 +1,7 @@
 package com.jonnyhsia.storybook.biz.story
 
-class StoryRemoteDataSource : StoryDataSource {
+import com.jonnyhsia.storybook.biz.base.BaseLogic
 
-    override fun preload() {
+class StoryRemoteDataSource : BaseLogic(), StoryDataSource {
 
-    }
 }
